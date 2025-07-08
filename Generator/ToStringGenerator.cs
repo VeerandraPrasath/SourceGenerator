@@ -20,10 +20,20 @@ public class ToStringGenerator : IIncrementalGenerator
 
     private static void Execute(SourceProductionContext context, ClassDeclarationSyntax classDeclarationSyntax)
     {
+        var namespaceName = "NotYetDefined";
         var className = classDeclarationSyntax.Identifier.Text;
-        var fileName = $"{className}.g.cs";
+        var fileName = $"{namespaceName}.{className}.g.cs";
 
-        context.AddSource(fileName, "//Generated file !");
+        var stringBuilder = new System.Text.StringBuilder();
+        stringBuilder.Append($@"namespace {namespaceName}
+{{
+   partial class {className}
+{{
+   //Created partial class
+}}
+}}
+");
+        context.AddSource(fileName, stringBuilder.ToString());
     }
 }
 
