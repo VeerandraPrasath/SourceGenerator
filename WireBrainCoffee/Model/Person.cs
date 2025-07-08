@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WireBrainCoffee.Model
 {
-    public class Person
+    public partial class Person
     {
         public string? FirstName { get; set; }
 

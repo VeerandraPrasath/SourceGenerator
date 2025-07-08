@@ -1,6 +1,6 @@
 ﻿namespace WireBrainCoffee
 {
-    internal class Program
+    internal partial class Program
     {
         static void Main(string[] args)
         {

@@ -20,8 +20,10 @@ public class ToStringGenerator : IIncrementalGenerator
 
     private static void Execute(SourceProductionContext context, ClassDeclarationSyntax classDeclarationSyntax)
     {
-        var namespaceName = "NotYetDefined";
-        var className = classDeclarationSyntax.Identifier.Text;
+        if(classDeclarationSyntax.Parent is NamespaceDeclarationSyntax namespaceDeclarationSyntax)
+        {
+        var namespaceName=namespaceDeclarationSyntax.Name.ToString();
+            var className = classDeclarationSyntax.Identifier.Text;
         var fileName = $"{namespaceName}.{className}.g.cs";
 
         var stringBuilder = new System.Text.StringBuilder();
@@ -34,6 +36,7 @@ public class ToStringGenerator : IIncrementalGenerator
 }}
 ");
         context.AddSource(fileName, stringBuilder.ToString());
+        }
     }
 }
 
