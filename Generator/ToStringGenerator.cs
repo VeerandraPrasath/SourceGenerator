@@ -29,10 +29,13 @@ public class ToStringGenerator : IIncrementalGenerator
         var stringBuilder = new System.Text.StringBuilder();
         stringBuilder.Append($@"namespace {namespaceName}
 {{
-   partial class {className}
-{{
-   //Created partial class
-}}
+    partial class {className}
+    {{
+        public override string ToString()
+        {{
+            return ""Hello from generated {className} class!"";
+        }}
+    }}
 }}
 ");
         context.AddSource(fileName, stringBuilder.ToString());

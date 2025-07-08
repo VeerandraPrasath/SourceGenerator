@@ -12,9 +12,6 @@ namespace WireBrainCoffee.Model
 
         public string? LastName { get; set; }
 
-        public override string ToString()
-        {
-            return $"FirstName:{FirstName}; LastName:{LastName}";
-        }
+    
     }
 }
