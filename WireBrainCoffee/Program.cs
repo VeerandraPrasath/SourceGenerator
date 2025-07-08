@@ -6,7 +6,7 @@ namespace WireBrainCoffee
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(new Person());
+            Console.WriteLine(new Person() {FirstName="Prasath" });
             Console.ReadLine();
         }
     }

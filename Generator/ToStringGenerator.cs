@@ -27,14 +27,17 @@ public class ToStringGenerator : IIncrementalGenerator
         var fileName = $"{namespaceName}.{className}.g.cs";
 
         var stringBuilder = new System.Text.StringBuilder();
-        stringBuilder.Append($@"namespace {namespaceName}
+            stringBuilder.Append($@"namespace {namespaceName}
 {{
     partial class {className}
     {{
         public override string ToString()
         {{
-            return ""Hello from generated {className} class!"";
-        }}
+            return $""");
+
+            stringBuilder.Append($"FirstName");
+            stringBuilder.Append($@""";
+         }}
     }}
 }}
 ");
