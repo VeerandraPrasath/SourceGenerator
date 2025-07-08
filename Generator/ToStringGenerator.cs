@@ -20,7 +20,7 @@ public class ToStringGenerator : IIncrementalGenerator
 
     private static void Execute(SourceProductionContext context, ClassDeclarationSyntax classDeclarationSyntax)
     {
-        if(classDeclarationSyntax.Parent is NamespaceDeclarationSyntax namespaceDeclarationSyntax)
+        if(classDeclarationSyntax.Parent is BaseNamespaceDeclarationSyntax namespaceDeclarationSyntax)
         {
         var namespaceName=namespaceDeclarationSyntax.Name.ToString();
             var className = classDeclarationSyntax.Identifier.Text;
