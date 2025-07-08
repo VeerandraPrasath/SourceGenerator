@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Generator;
@@ -39,7 +40,7 @@ public class ToStringGenerator : IIncrementalGenerator
 
             foreach (var memberDeclarationSustax in classDeclarationSyntax.Members)
             {
-                if(memberDeclarationSustax is PropertyDeclarationSyntax propertyDeclarationSyntax)
+                if(memberDeclarationSustax is PropertyDeclarationSyntax propertyDeclarationSyntax && propertyDeclarationSyntax.Modifiers.Any(SyntaxKind.PublicKeyword))
                 {
                     var propertyName = propertyDeclarationSyntax.Identifier.Text;
                     stringBuilder.Append($"{propertyName}:{{{propertyName}}}");

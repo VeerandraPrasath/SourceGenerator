@@ -10,7 +10,7 @@ namespace WireBrainCoffee.Model
     {
         public string? FirstName { get; set; }
 
-        public string? LastName { get; set; }
+        private string? LastName { get; set; }
 
     
     }
