@@ -35,7 +35,16 @@ public class ToStringGenerator : IIncrementalGenerator
         {{
             return $""");
 
-            stringBuilder.Append($"FirstName");
+            //stringBuilder.Append($"FirstName");
+
+            foreach (var memberDeclarationSustax in classDeclarationSyntax.Members)
+            {
+                if(memberDeclarationSustax is PropertyDeclarationSyntax propertyDeclarationSyntax)
+                {
+                    var propertyName = propertyDeclarationSyntax.Identifier.Text;
+                    stringBuilder.Append($"{propertyName}:{{{propertyName}}}");
+                }
+            }
             stringBuilder.Append($@""";
          }}
     }}
